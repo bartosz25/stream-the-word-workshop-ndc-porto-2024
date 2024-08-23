@@ -1,0 +1,1 @@
+BASE_DIR = '/tmp/ndc/apache-spark-structured-streaming/04-apache-kafka-to-apache-kafka'

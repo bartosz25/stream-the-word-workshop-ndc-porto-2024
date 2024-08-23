@@ -1,0 +1,1 @@
+BASE_DIR = '/tmp/ndc/apache-spark-structured-streaming/03-stateful-processing'
