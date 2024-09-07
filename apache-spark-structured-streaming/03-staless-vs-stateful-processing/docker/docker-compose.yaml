@@ -34,7 +34,8 @@ services:
       kafka-topics.sh --bootstrap-server kafka:9092 --list
       echo -e 'Creating Kafka topics'
       kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic visits --replication-factor 1 --partitions 2
-      kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic browser-stats --replication-factor 1 --partitions 2
+      kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic browser-stats-stateful --replication-factor 1 --partitions 2
+      kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic browser-stats-stateless --replication-factor 1 --partitions 2
 
       echo -e 'Successfully created the following topics:'
       kafka-topics.sh --bootstrap-server kafka:9092 --list

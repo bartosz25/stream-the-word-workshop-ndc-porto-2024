@@ -6,9 +6,10 @@ from pyspark.sql import SparkSession, functions as F, DataFrame
 from config import BASE_DIR
 
 if __name__ == '__main__':
-    spark = SparkSession.builder.master('local[*]') \
-        .config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0') \
-        .getOrCreate()
+    spark = (SparkSession.builder.master('local[*]')
+        .config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0')
+        .config("spark.sql.session.timeZone", "UTC")
+        .getOrCreate())
 
     input_data_stream = (spark.readStream
         .option('kafka.bootstrap.servers', 'localhost:9094')
@@ -33,8 +34,8 @@ if __name__ == '__main__':
     write_data_stream = (output_dataframe.writeStream.format('kafka')
                          .outputMode('update')
                          .option('kafka.bootstrap.servers', 'localhost:9094')
-                         .option('topic', 'browser-stats')
+                         .option('topic', 'browser-stats-stateful')
                          .trigger(processingTime='15 seconds')
-                         .option('checkpointLocation',f'{BASE_DIR}/checkpoint'))
+                         .option('checkpointLocation',f'{BASE_DIR}/stateful/checkpoint'))
 
     write_data_stream.start().awaitTermination()
