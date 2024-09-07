@@ -1,1 +1,1 @@
-BASE_DIR = '/tmp/ndc/apache-spark-structured-streaming/01-micro-batch'
+BASE_DIR = '/tmp/ndc-2024/apache-spark-structured-streaming/01-micro-batch'

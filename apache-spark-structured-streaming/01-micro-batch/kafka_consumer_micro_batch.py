@@ -14,6 +14,7 @@ if __name__ == '__main__':
         .option('kafka.bootstrap.servers', 'localhost:9094')
         .option('subscribe', 'visits')
         .option('startingOffsets', 'EARLIEST')
+        .option('maxOffsetsPerTrigger', 10)
         .format('kafka').load())
 
     visit_schema = 'visit_id STRING, event_time TIMESTAMP, page STRING'
