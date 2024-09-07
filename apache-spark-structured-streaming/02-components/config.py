@@ -1,1 +1,0 @@
-BASE_DIR = '/tmp/ndc/apache-spark-structured-streaming/01-micro-batch'

@@ -16,4 +16,5 @@ if __name__ == '__main__':
                          .trigger(once=True)
                          .option('checkpointLocation',f'{BASE_DIR}/once-trigger/checkpoint')
                          .format('console'))
+
     write_data_stream.start().awaitTermination()
