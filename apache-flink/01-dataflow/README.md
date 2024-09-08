@@ -18,4 +18,4 @@ docker-compose down --volumes; docker-compose up
 4. After running the code, you should see only the "other" browsers printed in the console. Besides, no new "chrome"
 records should be ingested after the `key_by` step, as shows the next video:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hxZHxBcVe60?si=SCG25z-myzW3JCxW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[https://www.youtube.com/embed/hxZHxBcVe60?si=SCG25z-myzW3JCxW](https://www.youtube.com/embed/hxZHxBcVe60?si=SCG25z-myzW3JCxW)
