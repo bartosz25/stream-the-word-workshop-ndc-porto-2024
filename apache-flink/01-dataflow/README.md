@@ -21,3 +21,5 @@ records should be ingested after the `key_by` step, as shows the next video:
 <video width="800" height="580" controls>
   <source src="assets/flink_blocked_task.mp4" type="video/mp4">
 </video>
+
+[assets/flink_blocked_task.mp4](assets/flink_blocked_task.mp4)
