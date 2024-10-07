@@ -9,6 +9,7 @@ if __name__ == '__main__':
     spark = (SparkSession.builder.master('local[*]')
         .config('spark.jars.packages', 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0')
         .config("spark.sql.session.timeZone", "UTC")
+        .config('spark.sql.shuffle.partitions', 2)
         .getOrCreate())
 
     input_data_stream = (spark.readStream
