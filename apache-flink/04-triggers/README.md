@@ -40,7 +40,7 @@ d={"visit_id": 10, "event_time": "2024-10-06T10:08:00.000+00:00", "browser": "Sa
 d={"visit_id": 11, "event_time": "2024-10-06T10:08:00.000+00:00", "browser": "Safari"}
 ```
 
-The consumer should emit any window as none of the created ones hasn't crossed the watermark yet.
+The consumer shouldn't emit any window as none of the created ones hasn't crossed the watermark yet.
 
 7. Send the next batch of records:
 ```
@@ -152,7 +152,7 @@ As you can see, the job only generated windows for the new windows, and so despi
 
 8. Let's add now the same record for Firefox as before but as the watermark moved on, the window is not present anymore:
 ```
-a={"visit_id": 222, "event_time": "2024-10-06T10:07:00.000+00:00", "browser": "Firefox"} 
+a={"visit_id": 222, "event_time": "2024-10-06T10:07:00.000+00:00", "browser": "Firefox"}
 ```
 
 Consequently, due to the count-based trigger semantics, we lost the update from the point 6.
@@ -227,7 +227,7 @@ As you can see in the consumer's console, there should be extra partial windows 
 
 6. Let's add an extra record for the Firefox browser that should be included in the window 10:05-10:10:
 ```
-a={"visit_id": 222, "event_time": "2024-10-06T10:07:00.000+00:00", "browser": "Firefox"} 
+a={"visit_id": 222, "event_time": "2024-10-06T10:07:00.000+00:00", "browser": "Firefox"}
 ```
 
 This time, the window should be updated:

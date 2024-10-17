@@ -30,7 +30,7 @@ docker exec -ti wfc_kafka kafka-console-producer.sh --broker-list localhost:9092
 
 ```
 
-6. Open Apache Flink UI at [http://localhost:4646](http://localhost:4646)) go to the "Watermarks" tab:
+6. Open Apache Flink UI at [http://localhost:8081](http://localhost:8081)) go to the "Watermarks" tab:
 
 ![flink_ui_run_0.png](assets/flink_ui_run_0.png)
 

@@ -22,7 +22,6 @@ if __name__ == '__main__':
         .selectExpr('value2.*', 'value'))
 
     def write_stateless_aggregrations(dataframe_to_aggregate: DataFrame, batch_number: int):
-        dataframe_to_aggregate.show()
         windows_with_browser_aggregation = (dataframe_to_aggregate
          .groupBy('browser', F.window(F.col("eventTime"), "5 minutes"))
          .agg(F.max('eventTime'), F.count('browser'))

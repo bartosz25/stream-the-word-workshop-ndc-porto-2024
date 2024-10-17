@@ -24,7 +24,7 @@ from visit import Visit
 #   in instance of org.apache.flink.connector.kafka.source.enumerator.initializer.ReaderHandledOffsetsInitializer
 config = Configuration()
 config.set_string("classloader.resolve-order", "parent-first")
-config.set_string("rest.port", "4646")
+config.set_string("rest.port", "8081")
 
 config.set_boolean("python.operator-chaining.enabled", False)
 env = StreamExecutionEnvironment.get_execution_environment(configuration=config)

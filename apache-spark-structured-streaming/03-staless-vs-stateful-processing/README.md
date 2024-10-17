@@ -131,12 +131,12 @@ Normally, the consumer shouldn't emit any new aggregation.
 invalidating all pending windows prior to this time:
 
 ```
-{"userId": 1, "page": "index.html", "eventTime": "2024-10-06T10:30:00Z", "browser": "Firefox"}
+{"userId": 1, "page": "index.html", "eventTime": "2024-10-06T10:40:00Z", "browser": "Firefox"}
 ```
 
 The consumer should emit a new aggregate:
 ```
-{"browser":"Firefox","window":{"start":"2024-10-06T10:30:00.000Z","end":"2024-10-06T10:35:00.000Z"},"count":1,"last_event_time_in_window":"2024-10-06T10:30:00.000Z"}
+{"browser":"Firefox","window":{"start":"2024-10-06T10:40:00.000Z","end":"2024-10-06T10:45:00.000Z"},"count":1,"last_event_time_in_window":"2024-10-06T10:40:00.000Z"}
 ```
 
 17. To prove you that the watermark moved on, let's emit now a record for 10:00. Remember from the previous steps, it 
@@ -146,4 +146,4 @@ had an active window back then:
 {"userId": 1, "page": "index.html", "eventTime": "2024-10-06T10:00:00Z", "browser": "Firefox"}
 ```
 
-However, since the watermark advanced to 10:10, the window for 10:00 is not there anymore.
+However, since the watermark advanced to 10:20, the window for 10:00 is not there anymore.

@@ -5,7 +5,7 @@ import os
 from pyflink.common import SimpleStringSchema, WatermarkStrategy, Configuration, Duration, Time
 from pyflink.common.typeinfo import Types
 from pyflink.datastream import StreamExecutionEnvironment, RuntimeExecutionMode, DataStream, \
-    TimeCharacteristic, WindowedStream, ExternalizedCheckpointRetention, ExternalizedCheckpointCleanup
+    TimeCharacteristic, WindowedStream
 from pyflink.datastream.connectors.kafka import KafkaSource, KafkaOffsetsInitializer, KafkaSink, \
     KafkaRecordSerializationSchema
 from pyflink.datastream.window import TumblingEventTimeWindows, EventTimeTrigger
@@ -23,14 +23,13 @@ from visit import Visit
 #   in instance of org.apache.flink.connector.kafka.source.enumerator.initializer.ReaderHandledOffsetsInitializer
 config = Configuration()
 config.set_string("classloader.resolve-order", "parent-first")
-config.set_string("rest.port", "4646")
+config.set_string("rest.port", "8081")
 
 config.set_boolean("python.operator-chaining.enabled", False)
 env = StreamExecutionEnvironment.get_execution_environment(configuration=config)
 env.set_runtime_mode(RuntimeExecutionMode.STREAMING)
 env.set_parallelism(2)
 env.enable_checkpointing(4000)
-env.get_checkpoint_config().enable_externalized_checkpoints(ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION)
 env.set_stream_time_characteristic(TimeCharacteristic.EventTime)
 # Unlike PySpark, you have to define the JARs explicitly for Flink
 env.add_jars(

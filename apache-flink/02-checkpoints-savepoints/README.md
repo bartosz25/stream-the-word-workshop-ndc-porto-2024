@@ -75,6 +75,10 @@ docker exec -ti docker_jobmanager_1 bash
 
 1. Return to the Job Manager container and stop the job with created savepoint create a savepoint:
 ```
+# To avoid permission issues
+chown root /checkpoints_flink/
+chgrp root /checkpoints_flink/
+
 export JOB_ID=d92ffab3b432c1178cce6d112a9201b7 #...put your job id here
 ./bin/flink stop --savepointPath /checkpoints_flink $JOB_ID
 ```

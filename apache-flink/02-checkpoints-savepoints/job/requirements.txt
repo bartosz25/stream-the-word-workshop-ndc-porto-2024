@@ -1,2 +1,2 @@
-apache-flink==1.19.0
+apache-flink==1.17.0
 confluent-kafka==2.0.2

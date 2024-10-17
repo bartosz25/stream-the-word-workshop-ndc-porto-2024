@@ -11,7 +11,7 @@ docker-compose down --volumes; docker-compose up
 
 3. Start `visits_counter_job.py`
 
-4. Open Flink UI at [http://localhost:4646/#/overview](http://localhost:4646/#/overview)
+4. Open Flink UI at [http://localhost:8081/#/overview](http://localhost:8081/#/overview)
 
 5. The welcome page shows all the jobs running on our local cluster. For the demo we have only one job called 
 "Flink UI demo". You can click on it to see the details.
